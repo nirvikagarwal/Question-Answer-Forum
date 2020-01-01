@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %} 
+    About | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>About US</h1>
+    <hr>
+    <p>AskUS.com is the perfect place to get solutions on all your Queries. </p>
+
+    <p>Register Now and be a part of this great Community.</p>
+    <a href="{% url 'register' %}"><button type="button" class="btn btn-success btn-lg">Register</button></a>
+    </div>
+
+{% endblock content %}

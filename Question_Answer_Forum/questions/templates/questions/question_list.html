@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    Questions | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+
+<a class="btn btn-success" href="{% url 'questions:question_ask' %}">Ask Your Question Here</a>
+<hr>
+<h1>All Questions</h1>
+<hr>
+{% for question in questions %}
+<div class="list-group">
+  <div class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1"><b><a href="{{question.get_absolute_url}}" >{{ question.qus }}</a></b>
+      <small>Asked {{ question.created|timesince }} ago By <b>
+      <a href="{{question.user.get_absolute_url}}" >{{ question.user.username }}</a>
+      </b></small></h4>
+      </div>
+    <p class="mb-1">{{ question.details|linebreaks|truncatechars:120 }}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}

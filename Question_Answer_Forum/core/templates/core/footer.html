@@ -1,0 +1,26 @@
+<hr>
+<footer class="footer navbar-fixed">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="title"><b>Footer Content</b></h4>
+                <p>This site is created and maintained by AskUs.</p>
+            </div>
+            <div class="col-md-6">
+                <h4 class="title"><strong>Quick Links</strong></h4>
+
+                <strong><a href="{% url 'home' %}">Home </a></strong>|
+                <strong><a href="{% url 'questions:question_list' %}">Questions</a></strong> |&nbsp;
+                <strong><a href="{% url 'about' %}">About Us</a></strong> |&nbsp;
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © 2019 Copyright: <a href="{% url 'home' %}"> AskUs.com</a>
+        </div>
+    </div>
+
+</footer>
+<br>

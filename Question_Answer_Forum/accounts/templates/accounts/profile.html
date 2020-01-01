@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block title %} 
+Profile | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+<hr>
+<div class="container bootstrap snippet">
+  <div class="row">
+    <div class="col-sm-10">
+      <h1>{{ user_profile.first_name }} {{ user_profile.last_name }}</h1>
+      <hr>
+      <strong>Email: </strong><a href="mailto:#">{{ user_profile.email }}</a><br>
+      {% if user_profile.birth_date %}
+      <small><b>Date of Birth:</b> {{ user_profile.birth_date }}</small><br>
+      {% endif %}
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-6 col-md-6 col-sm-3">
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Profile</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Username</strong></span>{{ user_profile.username }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span>{{ user_profile.date_joined|date:'d-m-Y' }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span>{{ user_profile.last_login|timesince }} ago</li>
+      </ul>
+    </div>
+    <div class="col-xs-6 col-md-6 col-sm-3">
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Activity</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Asked</strong></span> {{ user_profile.question_set.count }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Answered</strong></span> {{ user_profile.answer_set.count }}</li>
+      </ul>  
+  </div>
+  
+{% endblock content %}

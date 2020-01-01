@@ -1,0 +1,55 @@
+{% extends "core/base.html" %}
+
+{% block title %} 
+Question Details | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+<h2>
+    {{ question.qus }}
+    <small>Asked by <a href="{{question.user.get_absolute_url}}">{{ question.user.username }}</a></small>
+</h2> 
+<hr>
+<strong>Created: </strong>{{ question.created }}<br>
+<hr>
+<strong>Details</strong>
+<hr>
+<p>{{ question.details }}</p>
+<hr>
+
+{% if request.user.is_authenticated %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input class="btn btn-success" type="submit" value='SUBMIT'>
+</form>
+<hr>
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Answers:</h2>
+        </div>
+    </div>
+    <hr>
+    {% for answer in answers_list %}
+        <div class="col-sm-11">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong>
+                        <a href="{{answer.user.get_absolute_url}}">{{ answer.user.username }}</a>
+                    </strong>
+                    <span style="float: right;" class="text-muted">
+                        {{ answer.created|timesince }} ago
+                    </span>
+                </div>
+                <div class="panel-body">
+                    {{ answer.ans }}
+                </div>
+            </div>
+            <hr>
+        </div>
+  {% endfor %}
+</div>
+{% endblock content %}

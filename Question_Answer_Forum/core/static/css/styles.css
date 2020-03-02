@@ -1,0 +1,58 @@
+body{
+    font-family: "Montserrat";
+}
+   
+.container-fluid{
+    padding: 3% 15% 5%;
+}
+
+.navbar-brand{
+    font-weight: bold;
+}
+
+.navbar{
+    margin: 0 0 4.5rem;
+}
+
+.nav-item{
+    padding: 0 18px;
+}
+  
+.nav-link{
+    font-size: 1.2rem;
+    font-family: "Montserrat";
+    font-weight: 300;
+}
+
+#title{
+    background-color: #87ceeb;
+    color: #fff;
+}
+
+
+h1{
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.title-btn{
+    margin: 5% 3% 5% 0;
+}
+
+.title-img{
+    margin-left: 20%;
+}
+
+.footer-copyright{
+    text-align: center;
+}
+
+
+.footer-link{
+    padding-left: 20px;
+}
+
+.footer-col{
+    text-align: right;
+}

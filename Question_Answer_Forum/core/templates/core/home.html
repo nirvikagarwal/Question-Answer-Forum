@@ -1,40 +1,123 @@
-{% extends "core/base.html" %}
+{% load static %}
 
-{% block title %} 
-    Home | {{ block.super }}    
-{% endblock title %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %} DoubtInflow {% endblock title %}</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,900&display=swap" rel="stylesheet">
 
-{% block content %}
-<div class="jumbotron">
-  <h1>AskUs.com</h1>
-  <p>
-    <a href="{% url 'questions:question_list' %}"><button class="btn btn-info btn-lg"> Questions</button></a>
-    <a href="{% url 'questions:question_ask' %}"><button class="btn btn-success btn-lg">Ask</button></a>
-  </p>
-</div>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/b252eac0ba.js" crossorigin="anonymous"></script>
+        
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../static/css/styles.css">
 
-<div class="container">
-  <h2>Latest Questions</h2>
-  <hr>
-  <div>
-    <div class="list-group">
-      {% for question in queryset %}
-      <div class="list-group">
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h4 class="mb-1"><b><a href="{{question.get_absolute_url}}" >{{ question.qus }}</a></b>
-            <small>Asked {{ question.created|timesince }} ago By <b>
-            <a href="{{question.user.get_absolute_url}}" >{{ question.user.username }}</a>
-            </b></small></h4>
-            </div>
-          <p class="mb-1">{{ question.details|linebreaks|truncatechars:120 }}</p>
 
+  <!-- JS scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section id="title">
+
+    <!-- NavBar -->
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'home' %}">DoubtInflow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'questions:question_list' %}">Questions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'questions:question_ask' %}">Ask</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
+          </ul>
+          
+          <ul class="navbar-nav ml-auto">
+    
+            {% if request.user.is_authenticated %}
+    
+            <li class="nav-item"> 
+              <a class="nav-link" href="{{user.get_absolute_url}}" style="font-weight: bold;"><i class="fas fa-user"></i> &nbsp {{user.username}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+    
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+            {% endif %}
+    
+          </ul>
         </div>
-      </div>
-      {% endfor %}
+      </nav>
+  
+      
+      
+      
+      <!-- Title -->
+      
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>DoubtInflow</h1>
+          <p>
+            <a href="{% url 'questions:question_list' %}"><button class="btn btn-danger btn-lg title-btn"> Questions</button></a>
+            <a href="{% url 'questions:question_ask' %}"><button class="btn btn-warning btn-lg title-btn">Ask</button></a>
+          </p>
+        </div>
 
+        <div class="col-lg-6">
+          <img class="title-img" src="../../static/images/question.png" alt="">
+        </div>
+
+      </div>
+      
     </div>
-    <a href="{% url 'questions:question_list' %}"><button type="button" class="btn btn-primary">View All Questions</button></a>
-  </div>
-</div>
-{% endblock content %}
+  </section>
+
+  <!-- Footer -->
+  
+  <section id="footer">
+    <footer class="footer">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-6">
+                  <p>© 2019 Copyright: <a class="footer-link" href="{% url 'home' %}">DoubtInflow</a></p>
+              </div>
+              <div class="col-md-6 footer-col">
+                  <h4><strong>Quick Links</strong></h4>
+  
+                  <a class="footer-link" href="{% url 'home' %}">Home </a>
+                  <a class="footer-link" href="{% url 'questions:question_list' %}">Questions</a>
+                  <a class="footer-link" href="{% url 'about' %}">About Us</a>
+  
+              </div>
+          </div>
+      </div>
+  
+  </footer>
+  </section>
+
+</body>
+</html>

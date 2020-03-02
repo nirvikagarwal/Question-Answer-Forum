@@ -4,7 +4,7 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
-USERNAME_REGEX = '^[a-zA-Z0-9]*$'
+USERNAME_REGEX = '^[a-zA-Z0-9@#$]*$'
 NAME_REGEX = '^[a-zA-Z]*$'
 
 
@@ -13,7 +13,7 @@ class User(AbstractUser):
                                 validators=[
                                         RegexValidator(
                                         regex = USERNAME_REGEX,
-                                        message = 'Username must be Alpahnumeric',
+                                        message = 'Username can be Alpahnumeric and contain only @,#,$',
                                         code='invalid_username'
                                         )]
                                 )

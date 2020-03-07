@@ -1,13 +1,27 @@
 body{
     font-family: "Montserrat";
 }
+
+#title{
+    background-color: #87ceeb;
+    color: #fff;
+}
+
+h1{
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.5;
+}
    
 .container-fluid{
     padding: 3% 15% 5%;
 }
 
+/* Navbar */
+
 .navbar-brand{
     font-weight: bold;
+    font-size: 25px;
 }
 
 .navbar{
@@ -24,17 +38,7 @@ body{
     font-weight: 300;
 }
 
-#title{
-    background-color: #87ceeb;
-    color: #fff;
-}
-
-
-h1{
-    font-size: 5rem;
-    font-weight: 900;
-    line-height: 1.5;
-}
+/* Title */
 
 .title-btn{
     margin: 5% 3% 5% 0;
@@ -43,6 +47,8 @@ h1{
 .title-img{
     margin-left: 20%;
 }
+
+/* Footer */
 
 .footer-copyright{
     text-align: center;
@@ -55,4 +61,46 @@ h1{
 
 .footer-col{
     text-align: right;
+}
+
+/* Question-List */
+
+
+.ask-btn{
+    margin: 3% 0;
+}
+
+.question-heading{
+    padding-bottom: 3%;
+}
+
+.question-item:hover{
+    background-color: #ffc107;;
+    color: #252a34;
+}
+
+.question{
+    color: #252a34;
+}
+
+.question:hover{
+    text-decoration: underline;
+    color: #252a34;
+    font-weight: bold;
+}
+
+.content{
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    padding: 3% 0;
+}
+
+.author{
+    color: #252a34;
+    font-size: 1.1rem;
+}
+
+.author:hover{
+    color: #252a34;
+    text-decoration: underline;   
 }

@@ -7,22 +7,35 @@
 {% block content %}
 
 
-<a class="btn btn-success" href="{% url 'questions:question_ask' %}">Ask Your Question Here</a>
-<hr>
-<h1>All Questions</h1>
-<hr>
+<a class="btn btn-danger ask-btn" href="{% url 'questions:question_ask' %}">Ask Your Question Here</a>
+<h1 class="question-heading">All Questions</h1>
 {% for question in questions %}
+
 <div class="list-group">
+  <div class="list-group-item list-group-item-action question-item">
+    <div class="d-flex w-100 justify-content-between">
+      <h3 class="mb-1"><a class="question" href="{{question.get_absolute_url}}" >{{ question.qus }}</a></h3>
+      <small>Asked {{ question.created|timesince }} ago</small>
+    </div>
+    <p class="mb-1 content">{{ question.details }}</p>
+    <small>
+      <b>
+        <a class="author" href="{{question.user.get_absolute_url}}" >{{ question.user.username }}</a>
+      </b>
+    </small>
+  </div>
+</div>
+<!-- <div class="list-group">
   <div class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
-      <h4 class="mb-1"><b><a href="{{question.get_absolute_url}}" >{{ question.qus }}</a></b>
+      <h4 class="mb-1"><a class="question" href="{{question.get_absolute_url}}" >{{ question.qus }}</a>
       <small>Asked {{ question.created|timesince }} ago By <b>
-      <a href="{{question.user.get_absolute_url}}" >{{ question.user.username }}</a>
+      <a class="author" href="{{question.user.get_absolute_url}}" >{{ question.user.username }}</a>
       </b></small></h4>
       </div>
     <p class="mb-1">{{ question.details|linebreaks|truncatechars:120 }}</p>
   </div>
-</div>
+</div> -->
 {% endfor %}
 
 {% endblock content %}

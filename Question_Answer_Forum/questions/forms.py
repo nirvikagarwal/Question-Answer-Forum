@@ -1,5 +1,5 @@
 from django import forms
-from .models import Question, Answer
+from .models import Question, Answer, Comment
 
 
 
@@ -13,4 +13,10 @@ class AnswerForm(forms.ModelForm):
     class Meta:
         model = Answer
         fields = ["ans"]
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ["text"]
 

@@ -48,3 +48,16 @@ class Answer(models.Model):
 
     class Meta:
         ordering = ['-created']
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
+    text = models.TextField()
+    creation_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
+
+    def get_absolute_url(self):
+        return reverse("questions:question_detail", kwargs={"slug": self.slug})

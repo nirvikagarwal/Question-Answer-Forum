@@ -42,3 +42,7 @@ An app where users can ask questions and answer others' questions.
 
 
 <h5>Now the server is running at `127.0.0.1:8000`</h5>
+
+<h2>Screenshot of the home page</h2>
+
+![Screenshot from 2020-03-08 23-08-32](https://user-images.githubusercontent.com/56895262/76168106-58bb2280-6192-11ea-9325-8dabb3dffda7.png)

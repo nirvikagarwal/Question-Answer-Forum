@@ -1,31 +1,44 @@
-# Question-Answer-Forum
-This is a Question/Answer forum where users can ask and answer questions. This website is created using Django.
+<h1>Question-Answer-Forum</h1>
+An app where users can ask questions and answer others' questions.
 
-## Getting Started
+<h2>Built With</h2>
+1. HTML <br>
+2. CSS <br>
+3. Django
 
-In order to getting this project runnning on your system execute the following commands in the terminal
+<h2>Getting Started</h2>
 
-mkdir Question_Answer_Forum
+<h4>Prerequisites</h4>
+1. python3 <br>
+2. pip3
 
-cd Question_Answer_Forum
+<h4>In order to getting this project runnning on your system execute the following commands in the terminal</h4>
 
-pip3 install pipenv
+<code>mkdir Question_Answer_Forum</code>
 
-pipenv shell
+<code>cd Question_Answer_Forum</code>
 
-pipenv install Django==3.0.3
+<h5>Setting up the virtual environment</h5>
 
-git clone https://github.com/nirvikagarwal/Question-Answer-Forum.git
+<code>pip3 install pipenv</code>
 
-cd Question-Answer-Forum
+<code>pipenv shell</code>
 
-cd Question_Answer_Forum
+<code>pipenv install Django==3.0.3</code>
 
-python manage.py makemigrations
+<h5>Cloning the repository</h5>
 
-python manage.py migrate
+<code>git clone https://github.com/nirvikagarwal/Question-Answer-Forum.git</code>
 
-python manage.py runserver
+<code>cd Question-Answer-Forum</code>
+
+<code>cd Question_Answer_Forum</code>
+
+<code>python manage.py makemigrations</code>
+
+<code>python manage.py migrate</code>
+
+<code>python manage.py runserver</code>
 
 
-Now the server is running at `127.0.0.1:8000`
+<h5>Now the server is running at `127.0.0.1:8000`</h5>

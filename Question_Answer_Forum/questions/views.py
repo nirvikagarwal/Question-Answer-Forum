@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView,DetailView
 from django.contrib import messages
 from . import models
-from .forms import QuestionForm, AnswerForm
+from .forms import QuestionForm, AnswerForm, CommentForm
 from django.contrib.auth.decorators import login_required
-from .models import Question, Answer
+from .models import Question, Answer, Comment
 
 class QuestionListView(ListView):
 
@@ -35,6 +35,7 @@ def question_detail(request, slug=None):
                   }
     return render(request, "questions/question_detail.html", context)
 
+
 @login_required()
 def question_ask(request):
     form = QuestionForm(request.POST or None)
@@ -48,5 +49,3 @@ def question_ask(request):
                 "title": "Ask Question"
               }
     return render(request, "questions/ask.html", context)
-
-

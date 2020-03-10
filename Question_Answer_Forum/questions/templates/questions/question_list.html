@@ -14,7 +14,7 @@
 <div class="list-group">
   <div class="list-group-item list-group-item-action question-item">
     <div class="d-flex w-100 justify-content-between">
-      <h3 class="mb-1"><a class="question" href="{{question.get_absolute_url}}" >{{ question.qus }}</a></h3>
+      <h3 class="mb-1"><a class="question" href="{{question.get_absolute_url}}" >{{ question.question }}</a></h3>
       <small>Asked {{ question.created|timesince }} ago</small>
     </div>
     <p class="mb-1 content">{{ question.details }}</p>
@@ -25,17 +25,7 @@
     </small>
   </div>
 </div>
-<!-- <div class="list-group">
-  <div class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h4 class="mb-1"><a class="question" href="{{question.get_absolute_url}}" >{{ question.qus }}</a>
-      <small>Asked {{ question.created|timesince }} ago By <b>
-      <a class="author" href="{{question.user.get_absolute_url}}" >{{ question.user.username }}</a>
-      </b></small></h4>
-      </div>
-    <p class="mb-1">{{ question.details|linebreaks|truncatechars:120 }}</p>
-  </div>
-</div> -->
+
 {% endfor %}
 
 {% endblock content %}

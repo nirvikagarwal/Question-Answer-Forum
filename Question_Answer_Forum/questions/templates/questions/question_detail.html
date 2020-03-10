@@ -7,7 +7,7 @@ Question Details | {{ block.super }}
 {% block content %}
 
 <h2>
-    {{ question.qus }}
+    {{ question.question }}
     <small>Asked by <a href="{{question.user.get_absolute_url}}">{{ question.user.username }}</a></small>
 </h2> 
 <hr>
@@ -45,9 +45,12 @@ Question Details | {{ block.super }}
                     </span>
                 </div>
                 <div class="panel-body">
-                    {{ answer.ans }}
+                    {{ answer.answer }}
                 </div>
             </div>
+            <br><br>
+            <a href="/questions/add_comment/{{ answer.pk }}"><button class="btn btn-danger" >Add Comment</button></a> &nbsp&nbsp&nbsp
+            <a href="/questions/view_comments/{{ answer.pk }}"><button class="btn btn-primary">View All Comments</button></a>
             <hr>
         </div>
   {% endfor %}

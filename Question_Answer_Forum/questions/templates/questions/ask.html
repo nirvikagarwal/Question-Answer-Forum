@@ -6,7 +6,7 @@
 {% block content %}
     <h2>{{ title }}</h2>
     <hr>
-    <form method="POST">
+    <form class="form-group" method="POST">
         {% csrf_token %}
         {{ form.as_p}}
         <br><br>

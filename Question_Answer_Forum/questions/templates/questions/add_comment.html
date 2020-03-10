@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% block title %}
+    {{ title }} | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <hr>
+    <form class="form-group" method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <br><br>
+        <input type="submit" class="btn btn-success" value="SUBMIT">
+    </form>
+
+{% endblock content%}

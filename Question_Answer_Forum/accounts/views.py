@@ -30,7 +30,7 @@ def register_view(request): # Creates a New Account & login New users
     if request.user.is_authenticated:
         return redirect("home")
     else:
-        title = "Register"
+        title = "REGISTER"
         form = UserRegistrationForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             user = form.save(commit=False)
